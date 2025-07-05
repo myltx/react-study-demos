@@ -1,6 +1,5 @@
-import React from "react";
 import { Card, Typography, Button, Space } from "antd";
-import { RocketOutlined, PlayCircleOutlined } from "@ant-design/icons";
+import { PlayCircleOutlined } from "@ant-design/icons";
 
 const { Title, Paragraph, Text } = Typography;
 

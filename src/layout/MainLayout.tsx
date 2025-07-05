@@ -1,29 +1,32 @@
 import React, { useState } from "react";
-import {
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
-  UploadOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-} from "@ant-design/icons";
+import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 import { Button, Layout, Menu, theme } from "antd";
-import { routes, type MenuItem } from "@/router/routes";
+import { routes, type MenuItem } from "../router/routes";
+import { useNavigate } from "react-router-dom";
+import { type MenuProps } from "antd";
+import AppRoutes from "../router/AppRoutes";
 
 const { Header, Sider, Content } = Layout;
 
-// const menuItems = (routes as MenuItem[]).map((route) => ({
-//   key: route.path,
-//   icon: route.icon,
-//   label: route.label,
-//   children: route.children ? menuItems(route.children) : undefined,
-// }));
+type MenuItemType = Required<MenuProps>["items"][number];
 
-const App: React.FC = () => {
+// 递归生成 Menu items
+const generateMenuItems = (routes: MenuItem[]): MenuItemType[] =>
+  routes.map((route) => ({
+    key: route.path || route.name,
+    icon: route.icon,
+    label: route.name,
+    children: route.children ? generateMenuItems(route.children) : undefined,
+  }));
+
+const MainLayout: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
-  console.log(routes, "menuItems");
+  const navigate = useNavigate();
+
+  const menuItems = generateMenuItems(routes);
 
   return (
     <Layout>
@@ -32,24 +35,9 @@ const App: React.FC = () => {
         <Menu
           theme="dark"
           mode="inline"
-          defaultSelectedKeys={["1"]}
-          items={[
-            {
-              key: "1",
-              icon: <UserOutlined />,
-              label: "nav 1",
-            },
-            {
-              key: "2",
-              icon: <VideoCameraOutlined />,
-              label: "nav 2",
-            },
-            {
-              key: "3",
-              icon: <UploadOutlined />,
-              label: "nav 3",
-            },
-          ]}
+          defaultSelectedKeys={[window.location.pathname]}
+          items={menuItems}
+          onClick={(e) => navigate(e.key)}
         />
       </Sider>
       <Layout>
@@ -73,11 +61,11 @@ const App: React.FC = () => {
             background: colorBgContainer,
             borderRadius: borderRadiusLG,
           }}>
-          Content
+          <AppRoutes />
         </Content>
       </Layout>
     </Layout>
   );
 };
 
-export default App;
+export default MainLayout;
