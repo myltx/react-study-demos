@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../App.css";
+import { Button, Flex, Input } from "antd";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -9,9 +10,9 @@ function App() {
   return (
     <>
       <h1>这个是 useState 示例</h1>
-      <div className="card">
-        <button onClick={updateCount}>count is {count}</button>
-        <input
+      <Flex gap="middle" vertical className="card">
+        <Button onClick={updateCount}>count is {count}</Button>
+        <Input
           type="text"
           placeholder="Type something..."
           value={count}
@@ -19,7 +20,7 @@ function App() {
             setCount(Number(e.target.value));
           }}
         />
-      </div>
+      </Flex>
     </>
   );
 }
