@@ -31,7 +31,7 @@ function MyComponent() {
 
   return (
     <div>
-      <h1>💡 useEffect 实现 id 变化后调用 API</h1>
+      {/* <h1>💡 useEffect 实现 id 变化后调用 API</h1> */}
       <h2>API 数据:</h2>
       <div>{loading ? <p>Loading...</p> : <p>数据加载完成: {data}</p>}</div>
     </div>

@@ -19,7 +19,7 @@ function MyComponent() {
 
   return (
     <div>
-      <h1>💡 1. useEffect 实现页面加载后调用一次 API</h1>
+      {/* <h1>💡 1. useEffect 实现页面加载后调用一次 API</h1> */}
       <h2>API 数据:</h2>
       <div>{loading ? <p>Loading...</p> : <p>数据加载完成: {data}</p>}</div>
       <h2>🔑 解释</h2>

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "../App.css";
 import { Button, Flex, Input } from "antd";
 
 function App() {
@@ -9,7 +8,7 @@ function App() {
   };
   return (
     <>
-      <h1>这个是 useState 示例</h1>
+      {/* <h1>这个是 useState 示例</h1> */}
       <Flex gap="middle" vertical className="card">
         <Button onClick={updateCount}>count is {count}</Button>
         <Input

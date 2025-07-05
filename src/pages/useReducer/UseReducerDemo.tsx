@@ -26,7 +26,7 @@ const Counter = () => {
 
   return (
     <div>
-      <h1>这个展示的是 useReducer 示例</h1>
+      {/* <h1>这个展示的是 useReducer 示例</h1> */}
       <div>{state}</div>
       <Button onClick={() => dispatch({ type: "increment" })}>+</Button>
       <Button onClick={() => dispatch({ type: "decrement" })}>-</Button>

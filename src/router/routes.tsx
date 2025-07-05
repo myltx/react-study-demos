@@ -1,10 +1,10 @@
 import React from "react";
 import { HomeOutlined, CodeOutlined } from "@ant-design/icons";
 import Home from "../pages/Home";
-import UseStateDemo from "../pages/UseStateDemo";
-import UseReducerDemo from "../pages/UseReducerDemo";
-import UseEffectDemo from "../pages/useEffectDemo";
-import UseEffectDemoChange from "../pages/useEffectDemoChange";
+import UseStateDemo from "@/pages/useState/useStateDemoPage";
+import UseReducerDemo from "@/pages/useReducer/useReducerDemoPage";
+import UseEffectDemo from "@/pages/useEffect/useEffectDemoPage";
+import UseEffectDemoChange from "@/pages/useEffect/useEffectDemoChangePage";
 
 export interface MenuItem {
   name: string; // 菜单名
@@ -36,13 +36,13 @@ export const routes: MenuItem[] = [
         element: <UseReducerDemo />,
       },
       {
-        name: "useEffectDemo",
-        path: "/useEffectDemo",
+        name: "useEffect",
+        path: "/useEffect",
         element: <UseEffectDemo />,
       },
       {
-        name: "UseEffectDemoChange",
-        path: "/useEffectDemoChange",
+        name: "UseEffectChange",
+        path: "/useEffectChange",
         element: <UseEffectDemoChange />,
       },
     ],
