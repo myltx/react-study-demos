@@ -1,52 +1,83 @@
-import { Link, Outlet } from "react-router-dom";
+import React, { useState } from "react";
+import {
+  MenuFoldOutlined,
+  MenuUnfoldOutlined,
+  UploadOutlined,
+  UserOutlined,
+  VideoCameraOutlined,
+} from "@ant-design/icons";
+import { Button, Layout, Menu, theme } from "antd";
 import { routes, type MenuItem } from "@/router/routes";
 
-function renderMenu(items: MenuItem[]) {
-  return (
-    <ul style={{ listStyle: "none", paddingLeft: "1rem" }}>
-      {items.map((item) => {
-        if (item.children) {
-          return (
-            <li key={item.name}>
-              <strong>{item.name}</strong>
-              {renderMenu(item.children)}
-            </li>
-          );
-        } else {
-          const path = item.index ? "/" : `/${item.path}`;
-          return (
-            <li key={item.path || "index"}>
-              <Link to={path}>{item.name}</Link>
-            </li>
-          );
-        }
-      })}
-    </ul>
-  );
-}
+const { Header, Sider, Content } = Layout;
 
-export default function MainLayout() {
-  const menuItems = routes[0].children || []; // 从 routes 配置提取 children
+// const menuItems = (routes as MenuItem[]).map((route) => ({
+//   key: route.path,
+//   icon: route.icon,
+//   label: route.label,
+//   children: route.children ? menuItems(route.children) : undefined,
+// }));
+
+const App: React.FC = () => {
+  const [collapsed, setCollapsed] = useState(false);
+  const {
+    token: { colorBgContainer, borderRadiusLG },
+  } = theme.useToken();
+  console.log(routes, "menuItems");
 
   return (
-    <div style={{ display: "flex", height: "100vh" }}>
-      {/* 左侧导航 */}
-      <nav
-        style={{
-          width: "200px",
-          background: "#f0f0f0",
-          padding: "1rem",
-          boxSizing: "border-box",
-          overflowY: "auto",
-        }}>
-        <h3>学习模块</h3>
-        {renderMenu(menuItems)}
-      </nav>
-
-      {/* 右侧内容区域 */}
-      <main style={{ flex: 1, padding: "1rem" }}>
-        <Outlet />
-      </main>
-    </div>
+    <Layout>
+      <Sider trigger={null} collapsible collapsed={collapsed}>
+        <div className="demo-logo-vertical" />
+        <Menu
+          theme="dark"
+          mode="inline"
+          defaultSelectedKeys={["1"]}
+          items={[
+            {
+              key: "1",
+              icon: <UserOutlined />,
+              label: "nav 1",
+            },
+            {
+              key: "2",
+              icon: <VideoCameraOutlined />,
+              label: "nav 2",
+            },
+            {
+              key: "3",
+              icon: <UploadOutlined />,
+              label: "nav 3",
+            },
+          ]}
+        />
+      </Sider>
+      <Layout>
+        <Header style={{ padding: 0, background: colorBgContainer }}>
+          <Button
+            type="text"
+            icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+            onClick={() => setCollapsed(!collapsed)}
+            style={{
+              fontSize: "16px",
+              width: 64,
+              height: 64,
+            }}
+          />
+        </Header>
+        <Content
+          style={{
+            margin: "24px 16px",
+            padding: 24,
+            minHeight: "86.4vh",
+            background: colorBgContainer,
+            borderRadius: borderRadiusLG,
+          }}>
+          Content
+        </Content>
+      </Layout>
+    </Layout>
   );
-}
+};
+
+export default App;
