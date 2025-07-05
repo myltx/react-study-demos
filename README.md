@@ -1,69 +1,97 @@
-# React + TypeScript + Vite
+<!--
+ * @Date: 2025-07-05 11:06:37
+ * @LastEditTimes: Do not edit
+ * @Descripttion: describe
+-->
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# react-study-demos
 
-Currently, two official plugins are available:
+## 📌 项目介绍
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+这是我的 React 学习 Demo 仓库，主要用于：
 
-## Expanding the ESLint configuration
+- 练习 React 常用 hooks 的使用方式与场景
+- 编写 React 组件练习与封装
+- 记录学习过程中遇到的技巧、问题与解决方案
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+希望通过持续积累，形成自己的 React 知识库与练习库，帮助自己快速上手实际项目开发。
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🛠 技术栈
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- React 19 - 最新版本的 React 框架
+- TypeScript - 为项目提供类型安全
+- Vite 7 - 现代化的构建工具，提供极速的开发体验
+- Ant Design 5 - 企业级 UI 组件库
+- React Router DOM 7 - 路由管理
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 📝 项目结构
+
+```
+src/
+├── layout/        # 布局组件
+├── pages/         # 页面组件
+│   ├── Home.tsx   # 首页
+│   ├── UseStateDemo.tsx
+│   ├── UseReducerDemo.tsx
+│   ├── useEffectDemo.tsx
+│   └── useEffectDemoChange.tsx
+├── router/        # 路由配置
+└── assets/        # 静态资源
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🚀 快速开始
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### 环境要求
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Node.js (推荐使用最新 LTS 版本)
+- pnpm (包管理工具)
+
+### 安装依赖
+
+```bash
+pnpm install
 ```
+
+### 开发服务器启动
+
+```bash
+pnpm dev
+```
+
+### 构建项目
+
+```bash
+pnpm build
+```
+
+### 代码检查
+
+```bash
+pnpm lint
+```
+
+## 📚 学习内容
+
+### Hooks 示例
+
+- useState - 状态管理基础
+- useReducer - 复杂状态管理
+- useEffect - 副作用处理
+  - 基础用法
+  - 依赖项变化处理
+
+### 项目特点
+
+- 使用 TypeScript 确保类型安全
+- 集成 ESLint 进行代码规范检查
+- 采用 Vite 实现快速的开发体验
+- 使用 Ant Design 提供美观的 UI 组件
+- 模块化的路由配置
+
+## 💡 备注
+
+本仓库主要用于个人学习与练习，若对你有帮助欢迎 star ⭐️，也欢迎 issue 与 PR 交流。
+
+## 📖 License
+
+MIT
