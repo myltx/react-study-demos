@@ -3,7 +3,7 @@ import AppRoutes from "./router/index";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={__BASE__}>
       <AppRoutes />
     </BrowserRouter>
   );
