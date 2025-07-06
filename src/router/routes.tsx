@@ -5,7 +5,7 @@ import UseStateDemo from "@/pages/useState/useStateDemoPage";
 import UseReducerDemo from "@/pages/useReducer/useReducerDemoPage";
 import UseEffectDemo from "@/pages/useEffect/useEffectDemoPage";
 import UseEffectDemoChange from "@/pages/useEffect/useEffectDemoChangePage";
-
+import UseMemo from "@/pages/useMemo/useMemoDemoPage";
 export interface MenuItem {
   name: string; // 菜单名
   path?: string; // 路由路径
@@ -44,6 +44,11 @@ export const routes: MenuItem[] = [
         name: "UseEffectChange",
         path: "/useEffectChange",
         element: <UseEffectDemoChange />,
+      },
+      {
+        name: "UseMemo",
+        path: "/UseMemo",
+        element: <UseMemo />,
       },
     ],
   },
