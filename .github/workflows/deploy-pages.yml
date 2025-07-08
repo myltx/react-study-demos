@@ -22,6 +22,15 @@ jobs:
       - name: Install dependencies
         run: pnpm install # 使用pnpm并确保依赖一致
 
+      - name: Create env file
+        run: |
+          echo "REACT_APP_GISCUS_REPO=${{ secrets.GISCUS_REPO }}" > .env.production
+          echo "REACT_APP_GISCUS_REPO_ID=${{ secrets.GISCUS_REPO_ID }}" >> .env.production
+          echo "REACT_APP_GISCUS_CATEGORY=${{ secrets.GISCUS_CATEGORY }}" >> .env.production
+          echo "REACT_APP_GISCUS_CATEGORY_ID=${{ secrets.GISCUS_CATEGORY_ID }}" >> .env.production
+          # 可选：验证env文件内容（调试用）
+          cat .env.production
+
       - name: Build
         run: pnpm run build
 
