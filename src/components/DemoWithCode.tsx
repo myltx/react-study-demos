@@ -1,8 +1,14 @@
 import React, { useState } from "react";
 import { Button, Tabs, message } from "antd";
-import { CopyOutlined, CodeOutlined, EyeOutlined } from "@ant-design/icons";
+import {
+  CopyOutlined,
+  CodeOutlined,
+  EyeOutlined,
+  MessageOutlined,
+} from "@ant-design/icons";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneLight } from "react-syntax-highlighter/dist/esm/styles/prism";
+import GiscusComments from "./GiscusComments";
 
 interface Props {
   title: string;
@@ -89,6 +95,15 @@ const DemoWithCode: React.FC<Props> = ({ title, Component, code }) => {
                 {code}
               </SyntaxHighlighter>
             ),
+          },
+          {
+            key: "comment",
+            label: (
+              <span>
+                <MessageOutlined /> 评论
+              </span>
+            ),
+            children: <GiscusComments />,
           },
         ]}
       />
