@@ -103,7 +103,7 @@ const DemoWithCode: React.FC<Props> = ({ title, Component, code }) => {
                 <MessageOutlined /> 评论
               </span>
             ),
-            children: <GiscusComments />,
+            children: <GiscusComments title={title} />,
           },
         ]}
       />

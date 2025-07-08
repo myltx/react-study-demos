@@ -1,8 +1,12 @@
-import { useLocation } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
 import Giscus from "@giscus/react";
 
-const GiscusComments = () => {
-  const location = useLocation();
+interface Props {
+  title: string;
+}
+
+const GiscusComments: React.FC<Props> = ({ title }) => {
+  // const location = useLocation();
   return (
     <Giscus
       repo={import.meta.env.VITE_REACT_APP_GISCUS_REPO}
@@ -10,7 +14,7 @@ const GiscusComments = () => {
       category={import.meta.env.VITE_REACT_APP_GISCUS_CATEGORY}
       categoryId={import.meta.env.VITE_REACT_APP_GISCUS_CATEGORY_ID}
       mapping="pathname"
-      key={location.pathname} // 确保路径变化时重新渲染
+      key={title} // 确保路径变化时重新渲染
       reactions-enabled="1"
       emit-metadata="1"
       input-position="top"
