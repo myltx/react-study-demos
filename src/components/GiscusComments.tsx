@@ -9,10 +9,10 @@ const GiscusComments: React.FC<Props> = ({ title }) => {
   // const location = useLocation();
   return (
     <Giscus
-      repo={import.meta.env.VITE_GISCUS_REPO}
-      repoId={import.meta.env.VITE_GISCUS_REPO_ID}
-      category={import.meta.env.VITE_GISCUS_CATEGORY}
-      categoryId={import.meta.env.VITE_GISCUS_CATEGORY_ID}
+      repo="myltx/react-study-demos"
+      repoId="R_kgDOPHM4DA"
+      category="Announcements"
+      categoryId="DIC_kwDOPHM4DM4Csowb"
       mapping="specific"
       term={title}
       reactions-enabled="1"
