@@ -91,6 +91,9 @@ const DemoWithCode: React.FC<Props> = ({ title, Component, code }) => {
                   padding: "16px",
                   background: "#f5f5f5",
                   borderRadius: "8px",
+                  height: "calc(100vh - 300px)",
+                  overflowX: "auto",
+                  overflowY: "auto",
                 }}>
                 {code}
               </SyntaxHighlighter>
