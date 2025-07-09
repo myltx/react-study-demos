@@ -25,7 +25,9 @@ function Home() {
           <Title level={2} style={{ textAlign: "center", marginBottom: 0 }}>
             🚀 欢迎来到 <Text type="success">React 学习模块</Text>
           </Title>
-          <Paragraph style={{ fontSize: "16px", textAlign: "center" }}>
+          <Paragraph
+            style={{ fontSize: "16px", textAlign: "center" }}
+            className="text-purple-600">
             本模块包含丰富的 React Hooks 与组件示例，帮助你系统掌握 React
             开发。点击左侧导航，开始探索吧！
           </Paragraph>
