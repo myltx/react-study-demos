@@ -3,7 +3,7 @@ import MyComponent from "./UseReducerDemo";
 import myComponentCode from "./UseReducerDemo?raw";
 import DemoWithCode from "@/components/DemoWithCode";
 
-const UseEffectDemoPage: React.FC = () => {
+const Page: React.FC = () => {
   return (
     <DemoWithCode
       title="这个展示的是 useReducer 示例"
@@ -13,4 +13,4 @@ const UseEffectDemoPage: React.FC = () => {
   );
 };
 
-export default UseEffectDemoPage;
+export default Page;

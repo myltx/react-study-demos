@@ -3,7 +3,7 @@ import MyComponent from "./useEffectDemoChange";
 import myComponentCode from "./useEffectDemoChange?raw";
 import DemoWithCode from "@/components/DemoWithCode";
 
-const UseEffectDemoPage: React.FC = () => {
+const Page: React.FC = () => {
   return (
     <DemoWithCode
       title="💡 useEffect 实现 id 变化后调用 API"
@@ -13,4 +13,4 @@ const UseEffectDemoPage: React.FC = () => {
   );
 };
 
-export default UseEffectDemoPage;
+export default Page;

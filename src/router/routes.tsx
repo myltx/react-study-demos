@@ -6,6 +6,7 @@ import UseReducerDemo from "@/pages/useReducer/useReducerDemoPage";
 import UseEffectDemo from "@/pages/useEffect/useEffectDemoPage";
 import UseEffectDemoChange from "@/pages/useEffect/useEffectDemoChangePage";
 import UseMemo from "@/pages/useMemo/useMemoDemoPage";
+import UseCallbackDemoPage from "@/pages/useCallback/index";
 export interface MenuItem {
   name: string; // 菜单名
   path?: string; // 路由路径
@@ -48,8 +49,13 @@ export const routes: MenuItem[] = [
       },
       {
         name: "UseMemo",
-        path: "/hooks/UseMemo",
+        path: "/hooks/useMemo",
         element: <UseMemo />,
+      },
+      {
+        name: "UseCallback",
+        path: "/hooks/useCallback",
+        element: <UseCallbackDemoPage />,
       },
     ],
   },

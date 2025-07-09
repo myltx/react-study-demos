@@ -3,7 +3,7 @@ import MyComponent from "./useEffectDemo";
 import myComponentCode from "./useEffectDemo?raw";
 import DemoWithCode from "@/components/DemoWithCode";
 
-const UseEffectDemoPage: React.FC = () => {
+const Page: React.FC = () => {
   return (
     <DemoWithCode
       title="useEffect 示例 - 页面加载调用一次 API"
@@ -13,4 +13,4 @@ const UseEffectDemoPage: React.FC = () => {
   );
 };
 
-export default UseEffectDemoPage;
+export default Page;
