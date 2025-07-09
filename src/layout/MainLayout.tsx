@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 import { Button, Layout, Menu, theme } from "antd";
 import { routes, type MenuItem } from "../router/routes";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { type MenuProps } from "antd";
 import AppRoutes from "../router/AppRoutes";
 
@@ -27,7 +27,31 @@ const MainLayout: React.FC = () => {
   const navigate = useNavigate();
 
   const menuItems = generateMenuItems(routes);
+  const location = useLocation(); // 获取当前路由信息
+  const currentPath = location.pathname; // 返回的是 `#` 后的部分，如 `/useState`
 
+  // 获取当前 path 的父 key
+  const getOpenKeys = (routes: MenuItem[], currentPath: string): string[] => {
+    for (const route of routes) {
+      if (route.children) {
+        const match = route.children.find(
+          (child) => child.path === currentPath
+        );
+        if (match) {
+          return [route.path || route.name];
+        } else {
+          // 递归查找多级菜单
+          const nested = getOpenKeys(route.children, currentPath);
+          if (nested.length) {
+            return [route.path || route.name, ...nested];
+          }
+        }
+      }
+    }
+    return [];
+  };
+
+  const openKeys = getOpenKeys(routes, currentPath);
   return (
     <Layout>
       <Sider trigger={null} collapsible collapsed={collapsed}>
@@ -35,7 +59,8 @@ const MainLayout: React.FC = () => {
         <Menu
           theme="dark"
           mode="inline"
-          defaultSelectedKeys={[window.location.pathname]}
+          selectedKeys={[currentPath]}
+          openKeys={openKeys}
           items={menuItems}
           onClick={(e) => navigate(e.key)}
         />

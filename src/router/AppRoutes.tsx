@@ -14,6 +14,7 @@ const generateRoutes = (routes: MenuItem[]): React.ReactNode[] => {
     )
     .flat();
 };
+console.log(generateRoutes(routes));
 
 const AppRoutes: React.FC = () => {
   return <Routes>{generateRoutes(routes)}</Routes>;

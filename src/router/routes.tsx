@@ -24,30 +24,31 @@ export const routes: MenuItem[] = [
   {
     name: "Hooks",
     icon: <CodeOutlined />,
+    path: "/hooks",
     children: [
       {
         name: "useState",
-        path: "/useState",
+        path: "/hooks/useState",
         element: <UseStateDemo />,
       },
       {
         name: "useReducer",
-        path: "/useReducer",
+        path: "/hooks/useReducer",
         element: <UseReducerDemo />,
       },
       {
         name: "useEffect",
-        path: "/useEffect",
+        path: "/hooks/useEffect",
         element: <UseEffectDemo />,
       },
       {
         name: "UseEffectChange",
-        path: "/useEffectChange",
+        path: "/hooks/useEffectChange",
         element: <UseEffectDemoChange />,
       },
       {
         name: "UseMemo",
-        path: "/UseMemo",
+        path: "/hooks/UseMemo",
         element: <UseMemo />,
       },
     ],

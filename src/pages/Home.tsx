@@ -1,9 +1,11 @@
 import { Card, Typography, Button, Space } from "antd";
 import { PlayCircleOutlined } from "@ant-design/icons";
+import { useNavigate } from "react-router-dom";
 
 const { Title, Paragraph, Text } = Typography;
 
 function Home() {
+  const navigate = useNavigate();
   return (
     <div
       style={{
@@ -34,10 +36,9 @@ function Home() {
 
           <div style={{ textAlign: "center" }}>
             <Button
-              type="primary"
               size="large"
               icon={<PlayCircleOutlined />}
-              href="/useState">
+              onClick={() => navigate("/hooks/useState")}>
               立即开始学习
             </Button>
           </div>
