@@ -1,6 +1,10 @@
-import React, { useState } from "react";
-import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
-import { Button, Layout, Menu, theme } from "antd";
+import React, { useEffect, useState } from "react";
+import {
+  GithubOutlined,
+  MenuFoldOutlined,
+  MenuUnfoldOutlined,
+} from "@ant-design/icons";
+import { Button, Layout, Menu, Space, theme, Tooltip } from "antd";
 import { routes, type MenuItem } from "../router/routes";
 import { useLocation, useNavigate } from "react-router-dom";
 import { type MenuProps } from "antd";
@@ -51,7 +55,13 @@ const MainLayout: React.FC = () => {
     return [];
   };
 
-  const openKeys = getOpenKeys(routes, currentPath);
+  const [openKeys, setOpenKeys] = useState<string[]>(
+    getOpenKeys(routes, currentPath)
+  );
+  // 在 location.pathname 变化时更新 openKeys
+  useEffect(() => {
+    setOpenKeys(getOpenKeys(routes, currentPath));
+  }, [currentPath]);
   return (
     <Layout>
       <Sider trigger={null} collapsible collapsed={collapsed}>
@@ -61,12 +71,15 @@ const MainLayout: React.FC = () => {
           mode="inline"
           selectedKeys={[currentPath]}
           openKeys={openKeys}
+          onOpenChange={(keys) => setOpenKeys(keys)}
           items={menuItems}
           onClick={(e) => navigate(e.key)}
         />
       </Sider>
       <Layout>
-        <Header style={{ padding: 0, background: colorBgContainer }}>
+        <Header
+          style={{ padding: 0, background: colorBgContainer }}
+          className="flex justify-between items-center">
           <Button
             type="text"
             icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
@@ -77,6 +90,16 @@ const MainLayout: React.FC = () => {
               height: 64,
             }}
           />
+          <Space className="mr-6">
+            <Tooltip placement="top" title="源码">
+              <GithubOutlined
+                text="18px"
+                onClick={() =>
+                  window.open("https://github.com/myltx/react-study-demos")
+                }
+              />
+            </Tooltip>
+          </Space>
         </Header>
         <Content
           style={{
