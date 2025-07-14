@@ -641,7 +641,7 @@ function ShoppingCart() {
 }
 
 export default ShoppingCart;
-`,nue=()=>Oe.jsx(Vi,{title:"useMemo 在列表渲染中缓存计算总和",Component:eue,code:tue}),{Title:ND,Paragraph:_d}=Ca,rue=de.memo(({onClick:e})=>(console.log("🔄 Child 渲染"),Oe.jsx(nr,{onClick:e,children:"点击子组件按钮"})));function aue(){const[e,t]=d.useState(0),n=()=>{console.log("子组件按钮点击")};return Oe.jsxs("div",{children:[Oe.jsxs("h2",{children:["Parent count: ",e]}),Oe.jsx(nr,{onClick:()=>t(e+1),className:"my-2",children:"+1"}),Oe.jsx(rue,{onClick:n}),Oe.jsxs(Ca,{className:"mt-2",children:[Oe.jsx(ND,{level:5,children:"✅ 问题背景"}),Oe.jsx(_d,{children:"当父组件向子组件传递函数 props 时，如果函数在每次 render 时都重新定义，会导致："}),Oe.jsx(_d,{children:"• 子组件即使没有其他 props 变化，也会被重新渲染（如果子组件使用 React.memo 时）。"})]}),Oe.jsxs(Ca,{className:"mt-2",children:[Oe.jsx(ND,{level:5,children:"🔍 运行效果"}),Oe.jsx(_d,{children:"1. 点击 +1 按钮："}),Oe.jsxs(_d,{children:["• Parent 重新渲染",Oe.jsx("br",{}),"• handleClick 重新定义",Oe.jsx("br",{}),"• Child 的 props onClick 变化，导致 Child 也重新渲染"]})]})]})}const oue=`import { Button, Typography } from "antd";
+`,nue=()=>Oe.jsx(Vi,{title:"useMemo 在列表渲染中缓存计算总和",Component:eue,code:tue}),{Title:ND,Paragraph:_d}=Ca,rue=de.memo(({onClick:e})=>(console.log("🔄 Child 渲染"),Oe.jsx(nr,{onClick:e,children:"点击子组件按钮"})));function aue(){const[e,t]=d.useState(0),n=()=>{console.log("子组件按钮点击")};return Oe.jsxs("div",{children:[Oe.jsxs("h2",{children:["Parent count: ",e]}),Oe.jsx(nr,{onClick:()=>t(e+1),className:"my-2 mr-2",children:"+1"}),Oe.jsx(rue,{onClick:n}),Oe.jsxs(Ca,{className:"mt-2",children:[Oe.jsx(ND,{level:5,children:"✅ 问题背景"}),Oe.jsx(_d,{children:"当父组件向子组件传递函数 props 时，如果函数在每次 render 时都重新定义，会导致："}),Oe.jsx(_d,{children:"• 子组件即使没有其他 props 变化，也会被重新渲染（如果子组件使用 React.memo 时）。"})]}),Oe.jsxs(Ca,{className:"mt-2",children:[Oe.jsx(ND,{level:5,children:"🔍 运行效果"}),Oe.jsx(_d,{children:"1. 点击 +1 按钮："}),Oe.jsxs(_d,{children:["• Parent 重新渲染",Oe.jsx("br",{}),"• handleClick 重新定义",Oe.jsx("br",{}),"• Child 的 props onClick 变化，导致 Child 也重新渲染"]})]})]})}const oue=`import { Button, Typography } from "antd";
 import React, { useState } from "react";
 
 const { Title, Paragraph } = Typography;
@@ -666,7 +666,7 @@ function Parent() {
   return (
     <div>
       <h2>Parent count: {count}</h2>
-      <Button onClick={() => setCount(count + 1)} className="my-2">
+      <Button onClick={() => setCount(count + 1)} className="my-2 mr-2">
         +1
       </Button>
       <Child onClick={handleClick} />
@@ -696,7 +696,7 @@ function Parent() {
 }
 
 export default Parent;
-`,iue=()=>Oe.jsx(Vi,{title:"🔬 示例：未使用 useCallback",Component:aue,code:oue}),{Title:AD,Paragraph:ID}=Ca,lue=de.memo(({onClick:e})=>(console.log("🔄 Child 渲染"),Oe.jsx(nr,{onClick:e,children:"点击子组件按钮"})));function sue(){const[e,t]=d.useState(0),n=d.useCallback(()=>{console.log("子组件按钮点击")},[]);return Oe.jsxs("div",{children:[Oe.jsxs("h2",{children:["Parent count: ",e]}),Oe.jsx(nr,{onClick:()=>t(e+1),className:"my-2",children:"+1"}),Oe.jsx(lue,{onClick:n}),Oe.jsxs(Ca,{className:"mt-2",children:[Oe.jsx(AD,{level:5,children:"🔍 运行效果"}),Oe.jsx(ID,{children:"1. 点击 +1 按钮："}),Oe.jsxs(ID,{children:["• Parent 重新渲染",Oe.jsx("br",{})," • handleClick 引用不变",Oe.jsx("br",{})," • Child 的 props 未变化，不重新渲染"]}),Oe.jsx(AD,{level:5,children:"✅ 性能优化目标达成。"})]})]})}const cue=`import { Button, Typography } from "antd";
+`,iue=()=>Oe.jsx(Vi,{title:"🔬 示例：未使用 useCallback",Component:aue,code:oue}),{Title:AD,Paragraph:ID}=Ca,lue=de.memo(({onClick:e})=>(console.log("🔄 Child 渲染"),Oe.jsx(nr,{onClick:e,children:"点击子组件按钮"})));function sue(){const[e,t]=d.useState(0),n=d.useCallback(()=>{console.log("子组件按钮点击")},[]);return Oe.jsxs("div",{children:[Oe.jsxs("h2",{children:["Parent count: ",e]}),Oe.jsx(nr,{onClick:()=>t(e+1),className:"my-2 mr-2",children:"+1"}),Oe.jsx(lue,{onClick:n}),Oe.jsxs(Ca,{className:"mt-2",children:[Oe.jsx(AD,{level:5,children:"🔍 运行效果"}),Oe.jsx(ID,{children:"1. 点击 +1 按钮："}),Oe.jsxs(ID,{children:["• Parent 重新渲染",Oe.jsx("br",{})," • handleClick 引用不变",Oe.jsx("br",{})," • Child 的 props 未变化，不重新渲染"]}),Oe.jsx(AD,{level:5,children:"✅ 性能优化目标达成。"})]})]})}const cue=`import { Button, Typography } from "antd";
 import React, { useCallback, useState } from "react";
 
 const { Title, Paragraph } = Typography;
@@ -721,7 +721,7 @@ function Parent() {
   return (
     <div>
       <h2>Parent count: {count}</h2>
-      <Button onClick={() => setCount(count + 1)} className="my-2">
+      <Button onClick={() => setCount(count + 1)} className="my-2 mr-2">
         +1
       </Button>
       <Child onClick={handleClick} />
