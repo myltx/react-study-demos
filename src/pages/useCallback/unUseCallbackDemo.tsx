@@ -23,7 +23,7 @@ function Parent() {
   return (
     <div>
       <h2>Parent count: {count}</h2>
-      <Button onClick={() => setCount(count + 1)} className="my-2">
+      <Button onClick={() => setCount(count + 1)} className="my-2 mr-2">
         +1
       </Button>
       <Child onClick={handleClick} />
