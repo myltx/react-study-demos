@@ -79,7 +79,7 @@ const MainLayout: React.FC = () => {
       <Layout>
         <Header
           style={{ padding: 0, background: colorBgContainer }}
-          className="flex justify-between items-center">
+          className="flex items-center justify-between">
           <Button
             type="text"
             icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
@@ -108,7 +108,9 @@ const MainLayout: React.FC = () => {
             minHeight: "86.4vh",
             background: colorBgContainer,
             borderRadius: borderRadiusLG,
-          }}>
+            overflowY: "auto",
+          }}
+          className="">
           <AppRoutes />
         </Content>
       </Layout>
