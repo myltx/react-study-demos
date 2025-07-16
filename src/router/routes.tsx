@@ -7,6 +7,7 @@ import UseEffectDemo from "@/pages/useEffect/useEffectDemoPage";
 import UseEffectDemoChange from "@/pages/useEffect/useEffectDemoChangePage";
 import UseMemo from "@/pages/useMemo/useMemoDemoPage";
 import UseCallbackDemoPage from "@/pages/useCallback/index";
+import UseRefPage from "@/pages/useRef/index";
 export interface MenuItem {
   name: string; // 菜单名
   path?: string; // 路由路径
@@ -56,6 +57,11 @@ export const routes: MenuItem[] = [
         name: "UseCallback",
         path: "/hooks/useCallback",
         element: <UseCallbackDemoPage />,
+      },
+      {
+        name: "UseRef",
+        path: "/hooks/useRef",
+        element: <UseRefPage />,
       },
     ],
   },
