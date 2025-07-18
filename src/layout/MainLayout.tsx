@@ -9,6 +9,8 @@ import { routes, type MenuItem } from "../router/routes";
 import { useLocation, useNavigate } from "react-router-dom";
 import { type MenuProps } from "antd";
 import AppRoutes from "../router/AppRoutes";
+import ThemeSwitcher from "@/components/ThemeSwitcher";
+import { useTheme } from "@/context/useTheme";
 
 const { Header, Sider, Content } = Layout;
 
@@ -29,7 +31,7 @@ const MainLayout: React.FC = () => {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
   const navigate = useNavigate();
-
+  const { theme: colorTheme } = useTheme(); // 使用你的 useTheme Hook
   const menuItems = generateMenuItems(routes);
   const location = useLocation(); // 获取当前路由信息
   const currentPath = location.pathname; // 返回的是 `#` 后的部分，如 `/useState`
@@ -63,7 +65,10 @@ const MainLayout: React.FC = () => {
     setOpenKeys(getOpenKeys(routes, currentPath));
   }, [currentPath]);
   return (
-    <Layout>
+    <Layout
+      className={
+        colorTheme === "light" ? "bg-white text-black" : "bg-black text-white"
+      }>
       <Sider trigger={null} collapsible collapsed={collapsed}>
         <div className="demo-logo-vertical" />
         <Menu
@@ -91,6 +96,8 @@ const MainLayout: React.FC = () => {
             }}
           />
           <Space className="mr-6">
+            <ThemeSwitcher />
+
             <Tooltip placement="top" title="源码">
               <GithubOutlined
                 text="18px"
