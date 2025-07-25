@@ -94,6 +94,16 @@ const Home = () => {
       url: "https://react-typescript-cheatsheet.netlify.app/",
       type: "cheatsheet",
     },
+    {
+      title: "React 进阶实践指南",
+      url: "https://s.juejin.cn/ds/Kjes4V1C0Dg/",
+      type: "cheatsheet",
+    },
+    {
+      title: "Node + React 实战：从 0 到 1 实现记账本",
+      url: "https://s.juejin.cn/ds/KjR39xlMR6g/",
+      type: "cheatsheet",
+    },
   ];
 
   // 计算进度
